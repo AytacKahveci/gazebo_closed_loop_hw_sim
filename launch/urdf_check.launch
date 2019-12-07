@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" default="True"/>
+    <arg name="use_sim_time" default="True"/>
+    <param name="robot_description" textfile="$(find gazebo_closed_loop_hw_sim)/urdf/four_bar.urdf" />
+    <param name="use_gui" value="$(arg gui)"/>
+    <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher"/>
+    <node name="robot_state_publisher" type="robot_state_publisher" pkg="robot_state_publisher"/>
+    <node name="rviz" type="rviz" pkg="rviz"/>
+</launch>

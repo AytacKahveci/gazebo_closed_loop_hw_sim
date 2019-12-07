@@ -1,0 +1,9 @@
+<launch>
+    <arg name="use_sim_time" default="true"/>
+    <rosparam file="$(find gazebo_closed_loop_hw_sim)/config/controllers.yaml" command="load"/>
+    <node name="controller_spawner_stopped" type="spawner" pkg="controller_manager"
+            args="joint_state_controller
+                  joint_position_controller"/>
+    <node name="robot_state_publisher" type="robot_state_publisher" pkg="robot_state_publisher"/>
+    <node name="rviz" type="rviz" pkg="rviz" args="-d $(find gazebo_closed_loop_hw_sim)/rviz/rviz.rviz"/>
+</launch>
